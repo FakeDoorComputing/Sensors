@@ -47,11 +47,11 @@ function stopSensor() {
 
 function accelerometerSuccess(acceleration) {
 
-	$('#sensorX').val(acceleration.x);
-	$('#sensorY').val(acceleration.y);
-	$('#sensorZ').val(acceleration.z);
+	$('#sensorX').val("Waiting...").val(acceleration.x);
+	$('#sensorY').val("Waiting...").val(acceleration.y);
+	$('#sensorZ').val("Waiting...").val(acceleration.z);
 	var time= new Date(acceleration.timestamp)
-	$('#timestamp').val(time);
+	$('#timestamp').val("Waiting...").val(time);
 }
 
 function accelerometerError() {
