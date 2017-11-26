@@ -30,6 +30,8 @@ $(document).on("pagecreate", "#page1", function () {
 
 
 function startSensor() {
+
+		console.log(accelerometerOptions.frequency);
 	watchID = navigator.accelerometer.watchAcceleration( accelerometerSuccess, accelerometerError, accelerometerOptions);
 }
 
@@ -48,8 +50,8 @@ function accelerometerSuccess(acceleration) {
 	$('#sensorX').val(acceleration.x);
 	$('#sensorY').val(acceleration.y);
 	$('#sensorZ').val(acceleration.z);
-	$('#timestamp').val(acceleration.timestamp);
-
+	var time= new Date(acceleration.timestamp)
+	$('#timestamp').val(time);
 }
 
 function accelerometerError() {

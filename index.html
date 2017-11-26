@@ -15,7 +15,15 @@
 
 <script src="phonegap.js" type="text/javascript"></script>
 <script src="index.js" type="text/javascript"></script>
-
+<style>
+  label, input[type=text] {
+    display: inline-block;
+  }
+  label {
+    width: 10em;
+    /* other CSS unchanged */
+  }
+</style>
 </head>
 
 <body>
@@ -35,18 +43,22 @@
         	<option value="on">On</option>
       	</select>
 
-      	<label for="textarea">Current values:</label>
+      <label for="textarea">Current values:</label>
+      <label for="sensorX">X : </label>
    		<input type="text" name="sensorX" id="sensorX" value=""  />
+      <label for="sensorY">Y : </label>
    		<input type="text" name="sensorY" id="sensorY" value=""  />
+      <label for="sensorZ">Z : </label>
    		<input type="text" name="sensorZ" id="sensorZ" value=""  />
-		<input type="text" name="timestamp" id="timestamp" value=""  />
+	    <input type="text" name="timestamp" id="timestamp" value=""  />
+
 
         <label for="slider">Update (ms):</label>
     	<input id="slider" type="range" name="slider" value="3000" min="0" max="10000" />
 
   </div>
 
-  <div data-role="footer">
+  <div data-role="footer" data-position="fixed">
     <h4>Footer</h4>
   </div>
 
