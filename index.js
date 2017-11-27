@@ -39,18 +39,13 @@ function startSensor() {
 function stopSensor() {
 	navigator.accelerometer.clearWatch(watchID);
 
-	$('#sensorX').val("");
-	$('#sensorY').val("");
-	$('#sensorZ').val("");
-	$('#timestamp').val("");
-}
-
-function accelerometerSuccess(acceleration) {
-
 	$('#sensorX').val("Waiting...");
 	$('#sensorY').val("Waiting...");
 	$('#sensorZ').val("Waiting...");
 	$('#timestamp').val("Waiting...");
+}
+
+function accelerometerSuccess(acceleration) {
 
 	$('#sensorX').val(acceleration.x);
 	$('#sensorY').val(acceleration.y);
