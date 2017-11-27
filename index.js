@@ -1,4 +1,4 @@
-var watchID;
+var watchID, running=false;
 var accelerometerOptions = { frequency: 2000 };  // Update every 2 seconds
 var freq = 3000;
 accelerometerOptions.frequency = 3000; //changed my mind - now 3 seconds
@@ -31,14 +31,14 @@ $(document).on("pagecreate", "#page1", function () {
 
 function startSensor() {
 
-		console.log(accelerometerOptions.frequency);
+	running=true;
 	watchID = navigator.accelerometer.watchAcceleration( accelerometerSuccess, accelerometerError, accelerometerOptions);
 }
 
 
 function stopSensor() {
 	navigator.accelerometer.clearWatch(watchID);
-
+	running=false;
 	$('#sensorX').val("Waiting...");
 	$('#sensorY').val("Waiting...");
 	$('#sensorZ').val("Waiting...");
@@ -61,5 +61,7 @@ function accelerometerError() {
 function updateFreq(freq) {
 	accelerometerOptions.frequency = freq;
 	stopSensor();
-	startSensor();
+	if(running){
+		startSensor();
+	}
 }
